@@ -22,9 +22,10 @@ import javax.swing.JFrame;
             fp.settings.addActionListener(e-> settings());
             fp.submit.addActionListener(e-> submit());
             fp.clear.addActionListener(e-> cls());
+            fp.reset.addActionListener(e-> numStat = 1);
             
     }private static void start() {
-       cls();
+       cls();     
        switch(numStat) {
            case 1:
                wf("Term 1: " + t1);
