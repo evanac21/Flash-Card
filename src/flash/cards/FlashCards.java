@@ -7,8 +7,8 @@ import javax.swing.JFrame;
     public class FlashCards {
          static flashPanel fp = new flashPanel();
          static int numStat = 1;
-         static String def1, def2, def3, def4;
-         static String t1 = "", t2 = "", t3 = "", t4= "";
+         static String def1, def2, def3, def4, def5, def6;
+         static String t1 = "", t2 = "", t3 = "", t4= "", t5 = "", t6 = "";
          static settingForm sf = new settingForm();
     public static void main(String[] args) {
         //This class creates the main frame and utilizes the ActionListeners of every button present
@@ -23,6 +23,7 @@ import javax.swing.JFrame;
             fp.submit.addActionListener(e-> submit());
             fp.clear.addActionListener(e-> cls());
             fp.reset.addActionListener(e-> numStat = 1);
+            fp.exitB.addActionListener(e-> System.exit(0));
             
     }private static void start() {
        cls();     
@@ -40,7 +41,9 @@ import javax.swing.JFrame;
                wf("Term 4: " + t4);
                break;
            case 5:
-               wf("Nope we can't do that yet...");
+               wf("Term 5: " + t5);
+           case 6:
+               wf("Term 6: " + t6);
                break;
        }
     }
@@ -84,6 +87,22 @@ import javax.swing.JFrame;
                 wf("Not Right! Correct Answer was: " + def4);
                 numStat++;
              }
+        }else if(numStat == 5) {
+             if(fp.responseField.getText().equals(def5)) {
+                wf("Thats Correct!");
+                numStat++;
+            }else {
+                wf("Not Right! Correct Answer was: " + def5);
+                numStat++;
+             }
+        }else if(numStat == 6) {
+             if(fp.responseField.getText().equals(def6)) {
+                wf("Thats Correct!");
+                numStat++;
+            }else {
+                wf("Not Right! Correct Answer was: " + def6);
+                numStat++;
+             }
         }
     }
     private static void settings() {
@@ -105,10 +124,14 @@ import javax.swing.JFrame;
         def2 = sf.Def2.getText();
         def3 = sf.Def3.getText();
         def4 = sf.Def4.getText();
+        def5 = sf.Def5.getText();
+        def6 = sf.Def6.getText();
         t1 = sf.Term1.getText();
         t2 = sf.Term2.getText();
         t3 = sf.Term3.getText();
         t4 = sf.Term4.getText();
+        t5 = sf.Term5.getText();
+        t6 = sf.Term6.getText();
     }
     private static void cls() {
         respo(""); wf("");
